@@ -93,12 +93,12 @@ DROP TABLE IF EXISTS `dimension`;
 CREATE TABLE `dimension` (
   `id` int(11) NOT NULL,
   `unit_id` int(11) DEFAULT NULL,
-  `dimensions_list_id` int(11) DEFAULT NULL,
+  `dimension_1` double DEFAULT NULL,
+  `dimension_2` double DEFAULT NULL,
+  `dimension_3` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `unit_id` (`unit_id`),
-  KEY `dimensions_list_id` (`dimensions_list_id`),
-  CONSTRAINT `dimension_ibfk_1` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`id`),
-  CONSTRAINT `dimension_ibfk_2` FOREIGN KEY (`dimensions_list_id`) REFERENCES `dimensions_list` (`id`)
+  CONSTRAINT `dimension_ibfk_1` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -158,30 +158,6 @@ LOCK TABLES `unit` WRITE;
 /*!40000 ALTER TABLE `unit` DISABLE KEYS */;
 /*!40000 ALTER TABLE `unit` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `dimensions_list`
---
-
-DROP TABLE IF EXISTS `dimensions_list`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dimensions_list` (
-  `id` int(11) NOT NULL,
-  `value` double DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `dimensions_list`
---
-
-LOCK TABLES `dimensions_list` WRITE;
-/*!40000 ALTER TABLE `dimensions_list` DISABLE KEYS */;
-/*!40000 ALTER TABLE `dimensions_list` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
