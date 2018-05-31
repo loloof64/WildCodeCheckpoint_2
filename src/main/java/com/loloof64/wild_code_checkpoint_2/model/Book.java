@@ -49,7 +49,7 @@ public class Book {
     @OneToOne
     private Weight weight;
 
-    public Long getId() {   
+    public Long getId() {
         return id;
     }
 
